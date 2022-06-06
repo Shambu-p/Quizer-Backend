@@ -1,16 +1,16 @@
 <?php
 
-class SimpleController extends CI_Controller {
+class Users extends CI_Controller {
 
     function __construct() {
         parent::__construct();
         $this->load->database();
     }
 
-    function index($id) {
+    function single_user($id) {
         
-        $this->load->model('Users');
-        $data = $this->Users->getUser($id);
+        $this->load->model('UsersModel');
+        $data = $this->UsersModel->getUser($id);
 
         header("Content-type: application/json");
         echo json_encode($data);
